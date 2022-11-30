@@ -14,8 +14,10 @@ Console.WriteLine("Input a first number: ");
 {
   Console.WriteLine("largest number is " + num2 + ";" + " smallest number is " + num1);  
 }
+
+
 Задача 2 (Напишите программу, которая на вход принимает 3 числа а на выходе выдает максимальное из этих чисел)
-*/
+
 Console.WriteLine("Input a first number: ");
  int  num1 = Convert.ToInt32(Console.ReadLine());
  Console.WriteLine("Input a second number: ");
@@ -43,4 +45,19 @@ Console.WriteLine("Input a first number: ");
  Console.WriteLine("largest number is " + num3);
  }
  
+
+Задача 3 (Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка))
+*/
+Console.WriteLine("Input a number: ");
+ int  num = Convert.ToInt32(Console.ReadLine());
+
+ if(num % 2  == 0)
+ {
+ Console.WriteLine("this number is even");
+ }
+ else
+ {
+ Console.WriteLine("this number is odd");
+ }
+
  
