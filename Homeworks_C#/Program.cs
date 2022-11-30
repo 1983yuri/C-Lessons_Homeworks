@@ -15,7 +15,6 @@ Console.WriteLine("Input a first number: ");
   Console.WriteLine("largest number is " + num2 + ";" + " smallest number is " + num1);  
 }
 
-
 Задача 2 (Напишите программу, которая на вход принимает 3 числа а на выходе выдает максимальное из этих чисел)
 
 Console.WriteLine("Input a first number: ");
@@ -47,7 +46,7 @@ Console.WriteLine("Input a first number: ");
  
 
 Задача 3 (Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка))
-*/
+
 Console.WriteLine("Input a number: ");
  int  num = Convert.ToInt32(Console.ReadLine());
 
@@ -61,3 +60,22 @@ Console.WriteLine("Input a number: ");
  }
 
  
+Задача 4 (Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N)
+*/
+Console.Write("Input an integer number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+int current = 2; // потому, что нам нужны только четные, начинаем с 2
+
+while(current <= num)
+{
+    if(current % 2 ==0)
+    {
+    Console.Write(current + " ");
+    current++;
+    }
+    else
+    {
+    current++;   
+    }
+}
