@@ -69,13 +69,13 @@ int current = 2; // потому, что нам нужны только четн
 
 while(current <= num)
 {
-    if(current % 2 ==0)
-    {
-    Console.Write(current + " ");
-    current++;
-    }
-    else
-    {
-    current++;   
-    }
+   // if(current % 2 ==0)
+   // {
+    Console.Write(current + " "); // Сделал более простое решение и более краткое
+        current = current + 2;
+   // }
+   // else
+   // {
+   // current++;   
+   // }
 }
