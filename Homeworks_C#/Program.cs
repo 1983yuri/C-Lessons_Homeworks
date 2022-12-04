@@ -151,7 +151,7 @@ Console.WriteLine("There is no such day of the week!");
 else
 {
 bool sandays = SanD(num);
-{
+
 if(sandays == true)
 {
   Console.WriteLine("This day is day off!");
@@ -159,6 +159,5 @@ if(sandays == true)
 else
 {
   Console.WriteLine("This day is not a day off!");
-}
 } 
 }
