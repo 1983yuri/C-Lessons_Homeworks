@@ -1,6 +1,5 @@
 ﻿/* Домашняя работа 1
 Задача 1 (Напишите программу, которая на вход принимает 2 числа а на выходе выдает какое больше, а какое меньше)
-
 Console.WriteLine("Input a first number: ");
  int  num1 = Convert.ToInt32(Console.ReadLine());
  Console.WriteLine("Input a second number: ");
@@ -14,19 +13,15 @@ Console.WriteLine("Input a first number: ");
 {
   Console.WriteLine("largest number is " + num2 + ";" + " smallest number is " + num1);  
 }
-
 Задача 2 (Напишите программу, которая на вход принимает 3 числа а на выходе выдает максимальное из этих чисел)
-
 Console.WriteLine("Input a first number: ");
  int  num1 = Convert.ToInt32(Console.ReadLine());
  Console.WriteLine("Input a second number: ");
  int  num2 = Convert.ToInt32(Console.ReadLine());
  Console.WriteLine("Input a third number: ");
  int  num3 = Convert.ToInt32(Console.ReadLine());
-
  int max = num1;
  
-
  if(num1 > num2)
  {
    max = num1;
@@ -44,12 +39,9 @@ Console.WriteLine("Input a first number: ");
  Console.WriteLine("largest number is " + num3);
  }
  
-
 Задача 3 (Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка))
-
 Console.WriteLine("Input a number: ");
  int  num = Convert.ToInt32(Console.ReadLine());
-
  if(num % 2  == 0)
  {
  Console.WriteLine("this number is even");
@@ -58,15 +50,11 @@ Console.WriteLine("Input a number: ");
  {
  Console.WriteLine("this number is odd");
  }
-
  
 Задача 4 (Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N)
-
 Console.Write("Input an integer number: ");
 int num = Convert.ToInt32(Console.ReadLine());
-
 int current = 2; // потому, что нам нужны только четные, начинаем с 2
-
 while(current <= num)
 {
    // if(current % 2 ==0)
@@ -79,8 +67,6 @@ while(current <= num)
    // current++;   
    // }
 }
-
-
 Домашняя работа 2
 Задача 1 (Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа)
 
@@ -90,7 +76,6 @@ int CutSecondNumber(int number) // Метод выделения второго 
     int cutSecond = cutThird % 10;
     return cutSecond;
 }
-
 bool ChekingDigit(int num) // Метод проверки числа на 3х значность
 {
     if (num < 100 || num > 1000)
@@ -102,11 +87,8 @@ bool ChekingDigit(int num) // Метод проверки числа на 3х з
         return true;
     }
 }
-
 Console.WriteLine("Enter a three-digit number: ");
 int num = Convert.ToInt32(Console.ReadLine());
-
-
 if (ChekingDigit(num) == true)
 {
     int cutsecond = CutSecondNumber(num);
@@ -117,9 +99,9 @@ else
     Console.WriteLine("The entered number is not three digits!");
 }
 
-
+/*
 Задача 2 (Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет)
-
+/*
 int CutThirdDigit(int number)
 {
   while(number > 999)
@@ -130,25 +112,10 @@ int CutThirdDigit(int number)
     return thirdNum;
 }
 
-int CheckNum(int num)
-{
-if(num < 100)
-  {
-   num =-1;
-   return num; 
-  }
-   return num; 
-}
-
-    
-
     Console.WriteLine("Enter a number: ");
     int num = Convert.ToInt32(Console.ReadLine());
 
-    int checknum = CheckNum(num);
-    int cut = CutThirdDigit(num);
-
-    Console.WriteLine($"The third digit of number {num} is {cut}");
+        
      if(num < 100)
   {
     Console.WriteLine("Entered number does not have a third digit");
@@ -158,30 +125,40 @@ if(num < 100)
     int cut = CutThirdDigit(num);
     Console.WriteLine($"The third digit of number {num} is {cut}");  
   }
-   */
-// Пробуем дальше
-int CutThirdDigit(int number)
+
+
+Задача 3 (Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным)
+*/
+bool SanD(int num)
 {
- if(num < 100)
+  if(num == 6 || num == 7)
   {
-   num =-1; 
+  return true;
   }
- else
+  else
+  {
+  return false;
+  }
+}
+
+Console.WriteLine("Enter a number representing the day of the week from 1 to 7: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+if(num < 1 || num > 7)
 {
-  while(number > 999)
-    {
-    number = number / 10; 
-    }
-    int thirdNum = number % 10;
-    return thirdNum;
+Console.WriteLine("There is no such day of the week!");
 }
+else
+{
+bool sandays = SanD(num);
+{
+if(sandays == true)
+{
+  Console.WriteLine("This day is day off!");
 }
-
-    Console.WriteLine("Enter a number: ");
-    int num = Convert.ToInt32(Console.ReadLine());
-
-    int checknum = CheckNum(num);
-    int cut = CutThirdDigit(num);
-
-    Console.WriteLine($"The third digit of number {num} is {cut}");
-  
+else
+{
+  Console.WriteLine("This day is not a day off!");
+}
+} 
+}
