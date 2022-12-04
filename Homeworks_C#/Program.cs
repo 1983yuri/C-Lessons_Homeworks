@@ -61,7 +61,7 @@ Console.WriteLine("Input a number: ");
 
  
 Задача 4 (Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N)
-*/
+
 Console.Write("Input an integer number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
@@ -71,7 +71,7 @@ while(current <= num)
 {
    // if(current % 2 ==0)
    // {
-    Console.Write(current + " "); // Сделал более простое решение
+    Console.Write(current + " "); // Сделал более простое решение и более краткое
         current = current + 2; // Шагаем через цифру, при этом не нужно проверять на четность! 
    // }
    // else
@@ -79,3 +79,44 @@ while(current <= num)
    // current++;   
    // }
 }
+
+
+Домашняя работа 2
+Задача 1 (Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа)
+*/
+int CutSecondNumber(int number) // Метод выделения второго числа
+{
+    int cutThird = number / 10;
+    int cutSecond = cutThird % 10;
+    return cutSecond;
+}
+
+bool ChekingDigit(int num) // Метод проверки числа на 3х значность
+{
+    if (num < 100 || num > 1000)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+Console.WriteLine("Enter a three-digit number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+
+if (ChekingDigit(num) == true)
+{
+    int cutsecond = CutSecondNumber(num);
+    Console.WriteLine($"New version number {num} is {cutsecond} ");
+}
+else
+{
+    Console.WriteLine("The entered number is not three digits!");
+}
+
+
+
+
