@@ -119,7 +119,7 @@ else
 
 
 Задача 2 (Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет)
-*/
+
 int CutThirdDigit(int number)
 {
   while(number > 999)
@@ -149,7 +149,7 @@ if(num < 100)
     int cut = CutThirdDigit(num);
 
     Console.WriteLine($"The third digit of number {num} is {cut}");
-    /* if(num < 100)
+     if(num < 100)
   {
     Console.WriteLine("Entered number does not have a third digit");
   }
@@ -159,4 +159,29 @@ if(num < 100)
     Console.WriteLine($"The third digit of number {num} is {cut}");  
   }
    */
+// Пробуем дальше
+int CutThirdDigit(int number)
+{
+ if(num < 100)
+  {
+   num =-1; 
+  }
+ else
+{
+  while(number > 999)
+    {
+    number = number / 10; 
+    }
+    int thirdNum = number % 10;
+    return thirdNum;
+}
+}
+
+    Console.WriteLine("Enter a number: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+
+    int checknum = CheckNum(num);
+    int cut = CutThirdDigit(num);
+
+    Console.WriteLine($"The third digit of number {num} is {cut}");
   
