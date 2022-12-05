@@ -89,6 +89,7 @@ bool ChekingDigit(int num) // Метод проверки числа на 3х з
 }
 Console.WriteLine("Enter a three-digit number: ");
 int num = Convert.ToInt32(Console.ReadLine());
+
 if (ChekingDigit(num) == true)
 {
     int cutsecond = CutSecondNumber(num);
