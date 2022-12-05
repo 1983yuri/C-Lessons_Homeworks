@@ -1,48 +1,93 @@
 ﻿/* Домашняя работа 1
 Задача 1 (Напишите программу, которая на вход принимает 2 числа а на выходе выдает какое больше, а какое меньше)
-Console.WriteLine("Input a first number: ");
- int  num1 = Convert.ToInt32(Console.ReadLine());
- Console.WriteLine("Input a second number: ");
- int  num2 = Convert.ToInt32(Console.ReadLine());
- 
- if(num1 > num2)
- {
-  Console.WriteLine("largest number is " + num1 + ";" + " smallest number is " + num2);  
- }
- else
+
+bool WhoIsBiggest(int num1, int num2)
 {
-  Console.WriteLine("largest number is " + num2 + ";" + " smallest number is " + num1);  
+if(num1 > num2)
+{
+return true;
 }
-Задача 2 (Напишите программу, которая на вход принимает 3 числа а на выходе выдает максимальное из этих чисел)
+else
+{
+return false;
+}
+}
+
 Console.WriteLine("Input a first number: ");
- int  num1 = Convert.ToInt32(Console.ReadLine());
+ int  numb1 = Convert.ToInt32(Console.ReadLine());
  Console.WriteLine("Input a second number: ");
- int  num2 = Convert.ToInt32(Console.ReadLine());
+ int  numb2 = Convert.ToInt32(Console.ReadLine());
+
+ bool result = WhoIsBiggest(numb1, numb2);
+ 
+ if(result == true)
+ {
+ Console.WriteLine($"largest number is {numb1} ; smallest number is {numb2}");
+ }
+ else
+ {
+ Console.WriteLine($"largest number is {numb2} ; smallest number is {numb1}");
+ }
+   
+   
+
+Задача 2 (Напишите программу, которая на вход принимает 3 числа а на выходе выдает максимальное из этих чисел)
+
+
+int ThreeMaxDigitNumber(int num1, int num2, int num3)
+{
+if(num1 > num2)
+ {
+   int max = num1;
+   return max;
+ }
+ else if(num2 > num3)
+ {
+   int max = num2;
+   return max;
+ }
+  else
+ {
+  int max = num3;
+  return max;
+ }
+}
+Console.WriteLine("Input a first number: ");
+ int  number1 = Convert.ToInt32(Console.ReadLine());
+ Console.WriteLine("Input a second number: ");
+ int  number2 = Convert.ToInt32(Console.ReadLine());
  Console.WriteLine("Input a third number: ");
- int  num3 = Convert.ToInt32(Console.ReadLine());
- int max = num1;
+ int  number3 = Convert.ToInt32(Console.ReadLine());
+
+ int max = ThreeMaxDigitNumber(number1, number2, number3);
  
- if(num1 > num2)
- {
-   max = num1;
- }
- else
- {
-   max = num2;
- }
- if(max > num3)
- {
- Console.WriteLine("largest number is " + max);
- }
- else
- {
- Console.WriteLine("largest number is " + num3);
- }
  
+ 
+ Console.WriteLine($"largest number from: {number1} ; {number2} ; {number3} is {max}");
+
+ 
+ 
+
 Задача 3 (Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка))
+
+bool EvenOdd(int num)
+{
+if(num % 2  == 0)
+{
+  return true; 
+}
+else
+{
+  return false;
+}
+}
+
 Console.WriteLine("Input a number: ");
  int  num = Convert.ToInt32(Console.ReadLine());
- if(num % 2  == 0)
+ 
+ bool result = EvenOdd(num);
+
+ if(EvenOdd(num) == true)
  {
  Console.WriteLine("this number is even");
  }
@@ -51,22 +96,23 @@ Console.WriteLine("Input a number: ");
  Console.WriteLine("this number is odd");
  }
  
+
 Задача 4 (Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N)
-Console.Write("Input an integer number: ");
-int num = Convert.ToInt32(Console.ReadLine());
-int current = 2; // потому, что нам нужны только четные, начинаем с 2
+void EvenToN(int num)
+{
+int current =2; // потому, что нам нужны только четные, начинаем с 2
 while(current <= num)
 {
-   // if(current % 2 ==0)
-   // {
     Console.Write(current + " "); // Сделал более простое решение и более краткое
-        current = current + 2; // Шагаем через цифру, при этом не нужно проверять на четность! 
-   // }
-   // else
-   // {
-   // current++;   
-   // }
+    current = current + 2; // Шагаем через цифру, при этом не нужно проверять на четность!    
 }
+}
+
+Console.Write("Input an integer number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+EvenToN(number);
+ 
+
 Домашняя работа 2
 Задача 1 (Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа)
 
@@ -130,6 +176,7 @@ int CutThirdDigit(int number)
 
 Задача 3 (Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным)
 */
+
 bool SanD(int num)
 {
   if(num == 6 || num == 7)
