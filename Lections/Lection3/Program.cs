@@ -85,7 +85,7 @@ Console.WriteLine($"Расстояние между двумя точками р
 
 void QuadToN(int num) 
 {
-int current = 1; // потому, что нам нужны только четные, начинаем с 2
+int current = 1; 
 while(current <= num)
 {   
     Console.Write(Math.Pow(current, 2) + " "); // Начинаем с 1 и возводим в степень 2 пока current <= num
