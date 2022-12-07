@@ -175,7 +175,7 @@ int CutThirdDigit(int number)
 
 
 Задача 3 (Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным)
-*/
+
 
 bool SanD(int num)
 {
@@ -209,3 +209,30 @@ else
   Console.WriteLine("This day is not a day off!");
 } 
 }
+
+Домашняя работа 3
+Задача 1 (Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом)
+*/
+
+void Pal(int num)
+{
+ //while(num > 1 || num ==1)
+ //{
+ //int currentDigit = num % 10;
+ //num = num / 10; // Переключает разряды далее
+ //}
+ if(num % 10 == num / 10000 && 
+    num % 100 / 10 == num / 1000 % 10)
+ {
+ Console.WriteLine("This number is palindrom!");
+ }
+ else
+ {
+ Console.WriteLine("This number is not a palindrome!");
+ }
+ }
+ 
+Console.WriteLine("Input an integer number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+Pal(num);
