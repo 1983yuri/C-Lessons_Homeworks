@@ -212,17 +212,12 @@ else
 
 Домашняя работа 3
 Задача 1 (Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом)
-*/
+Вариант - частный
 
-void Pal(int num)
+void Pal(int num) // Элементарное решение для 5 значного числа без цикла, далее общее решение
 {
- //while(num > 1 || num ==1)
- //{
- //int currentDigit = num % 10;
- //num = num / 10; // Переключает разряды далее
- //}
- if(num % 10 == num / 10000 && 
-    num % 100 / 10 == num / 1000 % 10)
+ if(num % 10 == num / 1000000 && // 
+    num % 100 / 10 == num / 100000 % 10)
  {
  Console.WriteLine("This number is palindrom!");
  }
@@ -232,6 +227,31 @@ void Pal(int num)
  }
  }
  
+Console.WriteLine("Input an integer number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+Pal(num);
+
+Вариант решения общий
+*/
+void Pal(int num)
+{
+  int revers = 0;
+  int temp = num;
+  while(temp > 0)
+  {
+    revers = revers * 10 + temp % 10;
+    temp = temp / 10;
+  }
+  if(revers == num)
+  {
+    Console.WriteLine("This number is a polindrom!");
+  }
+  else
+  {
+    Console.WriteLine("This number is not a polindrom!");
+  }
+}
 Console.WriteLine("Input an integer number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
