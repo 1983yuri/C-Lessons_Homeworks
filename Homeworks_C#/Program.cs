@@ -146,9 +146,9 @@ else
     Console.WriteLine("The entered number is not three digits!");
 }
 
-/*
+
 Задача 2 (Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет)
-/*
+
 int CutThirdDigit(int number)
 {
   while(number > 999)
@@ -216,10 +216,10 @@ else
 
 void Pal(int num) // Элементарное решение для 5 значного числа без цикла, далее общее решение
 {
- if(num % 10 == num / 1000000 && // 
-    num % 100 / 10 == num / 100000 % 10)
+ if(num % 10 == num / 10000 &&  
+    num % 100 / 10 == num / 1000 % 10)
  {
- Console.WriteLine("This number is palindrom!");
+ Console.WriteLine("This number is a palindrom!");
  }
  else
  {
@@ -231,7 +231,7 @@ Console.WriteLine("Input an integer number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
 Pal(num);
-
+/*
 Вариант решения общий
 
 void Pal(int num)
@@ -240,8 +240,8 @@ void Pal(int num)
   int temp = num;
   while(temp > 0)
   {
-    revers = revers * 10 + temp % 10; // Формируем реверсное число по одному элементу
-    temp = temp / 10; // Отсекаем по одному элементу справа налево от изначального числа 
+    revers = revers * 10 + temp % 10; // Формируем реверсное число по одному элементу на каждой итерации
+    temp = temp / 10; // Отсекаем по одному элементу справа налево от изначального числа на каждой итерации
   }
   if(revers == num)
   {
@@ -288,7 +288,7 @@ double lenght = Lenght(x1, y1, z1, x2, y2, z2);
 Console.WriteLine($"Расстояние между двумя точками равно: {lenght}");
 
 Задача 3 (Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N)
-*/
+
 
 void CubeToN(int num) 
 {
@@ -303,3 +303,4 @@ while(current <= num)
 Console.Write("Input an integer number: ");
 int number = Convert.ToInt32(Console.ReadLine());
 CubeToN(number);
+*/
