@@ -6,8 +6,12 @@ double CustomMathPow(double num, int exp)
     double result = num;
     for(int count = 1; count < exp; count++)
     {
-         result *= num; 
+         result *= num;  // result = result * num        
     }
+    if(exp == 0)
+         {
+           result = 1; 
+         }         
     return result;
 }
 
