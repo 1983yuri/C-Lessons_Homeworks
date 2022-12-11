@@ -62,3 +62,30 @@ Console.WriteLine($"The sum of digits number {usernumb} is {sumD}");
 Задача 3 (Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран)
 
 */
+int[] CreateCustomArray(int size)
+{
+    int[] array = new int[size]; // Инициализации массива, выделение памяти
+
+    for(int i = 0; i < size; i++)
+    {
+        Console.Write($"Input a {i + 1} number of elements: ");
+        array[i] = Convert.ToInt32(Console.ReadLine()); 
+    }
+    return array; // Возвращаем просто имя массива!!!
+}
+
+// Метод для вывода массива 
+void ShowArray(int[] array)
+{
+    for(int i = 0; i < array.Length; i++) // Идем по всему массиву
+    {    
+      Console.WriteLine($"array[{i + 1}] is {array[i]}"); 
+    }
+}
+Console.Write("Input a number of elements: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+
+int[] myArray = CreateCustomArray(size);
+Console.WriteLine("The elements of custom array is:");
+ShowArray(myArray);
