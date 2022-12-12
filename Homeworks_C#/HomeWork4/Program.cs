@@ -6,23 +6,23 @@ double CustomMathPow(double num, int exp)
     
     double result = num;
     int tempexp = exp; // заводим временную переменную, для отрицательных степеней
-    if(exp < 1)
-    {
-        tempexp = (exp) * -1;
-    } 
+     if(exp < 1)
+     {
+         tempexp = (exp) * -1;
+     } 
     for(int count = 1; count < tempexp; count++)
     {
          result *= num;  // result = result * num        
     }
 
-     if(exp == 0)
+    if(exp == 0)
           {
             result = 1; 
           }
-     if(exp < 0)
-    {
-           result = 1 / result;      
-    }                 
+    if(exp < 0)
+          {      
+            result = 1 / result;      
+          }                 
     return result;
 }
 
@@ -36,13 +36,13 @@ double mathpow = CustomMathPow(power, degree);
 
 Console.WriteLine($"The number {power} to the power {degree} is {mathpow}");
 
-/*
-Задача 2 (Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе)
 
+Задача 2 (Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе)
+*/
 int SumD(int num)
 {
     int result = 0;
-    int temp = num;
+    int temp = Math.Abs(num); // Берем модуль введенного числа, потому что нас интересует только сумма цифр
    
     while(temp > 0)
     {
@@ -58,10 +58,10 @@ int usernumb = Convert.ToInt32(Console.ReadLine());
 int sumD = SumD(usernumb);
 
 Console.WriteLine($"The sum of digits number {usernumb} is {sumD}");
-
+/*
 Задача 3 (Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран)
 
-*/
+
 int[] CreateCustomArray(int size)
 {
     int[] array = new int[size]; // Инициализации массива, выделение памяти
@@ -89,3 +89,4 @@ int size = Convert.ToInt32(Console.ReadLine());
 int[] myArray = CreateCustomArray(size);
 Console.WriteLine("The elements of custom array is:");
 ShowArray(myArray);
+*/
