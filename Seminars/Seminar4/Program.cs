@@ -73,7 +73,7 @@ int[] CreateRandomArray(int size, int minValue, int maxValue)
     return array; // Возвращаем просто имя массива!!!
 }
 
-// Метод для вывода массиваб потому что не работают Write и Read 
+// Метод для вывода массива 
 void ShowArray(int[] array)
 {
     for(int i = 0; i < array.Length; i++)

@@ -38,7 +38,7 @@ Console.WriteLine($"The number {power} to the power {degree} is {mathpow}");
 
 
 Задача 2 (Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе)
-*/
+
 int SumD(int num)
 {
     int result = 0;
@@ -58,7 +58,7 @@ int usernumb = Convert.ToInt32(Console.ReadLine());
 int sumD = SumD(usernumb);
 
 Console.WriteLine($"The sum of digits number {usernumb} is {sumD}");
-/*
+
 Задача 3 (Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран)
 
 
