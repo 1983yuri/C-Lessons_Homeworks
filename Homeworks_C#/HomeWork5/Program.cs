@@ -92,22 +92,17 @@ double[] CreateRandomArrayRealNum(int size, int minValue, int maxValue) // Ме�
 
     for(int i = 0; i < size; i++)
     {          
-        arrayInt[i] = new Random().Next(minValue, maxValue);  // +1 убрали потому, что верхняя граница double = 1    
-    }
-    for(int i = 0; i < size; i++)
-    {          
-        arrayDouble[i] = new Random().NextDouble();  // Double не принимает аргументов 
-    }
-    for(int i = 0; i < size; i++)
-    {          
+        arrayInt[i] = new Random().Next(minValue, maxValue);  // +1 убрали потому, что верхняя граница double = 1
+        arrayDouble[i] = new Random().NextDouble(); // NextDouble - не принимает аргументов
         array[i] = arrayInt[i] + arrayDouble[i];    
     }
-    return array; // Аж 3 прохода, буду думать, как сократить.
+    
+    return array; 
 }
 
-double DifMinMax(double[] myArray)
+double DiffMaxMin(double[] myArray)
 {
-    double dif = 0;
+    double diff = 0;
     double min = myArray[0];
     double max = myArray[0]; 
     for(int i = 0; i < myArray.Length; i++)
@@ -117,9 +112,9 @@ double DifMinMax(double[] myArray)
         else if(max < myArray[i])
            max = myArray[i];            
     }
-        dif = max-min;
+        diff = max-min;
         
-    return dif;
+    return diff;
 }
 
 Console.Write("Input a number of elements: ");
@@ -134,6 +129,6 @@ int max = Convert.ToInt32(Console.ReadLine());
 double[] myArray = CreateRandomArrayRealNum(size, min, max);
 Console.WriteLine("Our array is: ");
 ShowArray(myArray);
-double result = DifMinMax(myArray);
+double result = DiffMaxMin(myArray);
 Console.WriteLine($"The difference between the max and min number in the array is: {result}");
 
