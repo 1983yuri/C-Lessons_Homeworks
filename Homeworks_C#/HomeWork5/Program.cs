@@ -87,14 +87,10 @@ Console.WriteLine($"The sum of odd array elements is {sumresult}");
 double[] CreateRandomArrayRealNum(int size, int minValue, int maxValue) // Метод создания и заполнения массива вещественными числами в заданном диапазоне
 {
     double[] array = new double[size];
-    int[] arrayInt = new int[size]; 
-    double[] arrayDouble = new double[size]; // Инициализации массива, выделение памяти под double массив
 
     for(int i = 0; i < size; i++)
-    {          
-        arrayInt[i] = new Random().Next(minValue, maxValue);  // +1 убрали потому, что верхняя граница double = 1
-        arrayDouble[i] = new Random().NextDouble(); // NextDouble - не принимает аргументов
-        array[i] = arrayInt[i] + arrayDouble[i];    
+    {    
+        array[i] = new Random().Next(minValue, maxValue) +  new Random().NextDouble();          
     }
     
     return array; 
