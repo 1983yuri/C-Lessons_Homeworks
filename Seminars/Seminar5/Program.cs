@@ -61,7 +61,7 @@ int[] Revers(int[] array)
 
     for(int i = 0; i < array.Length; i++)
     {
-      array[i] = array[i] * -1;
+      array[i] *= -1;
     }
                   
     return array;
