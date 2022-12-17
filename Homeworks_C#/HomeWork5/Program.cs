@@ -96,7 +96,7 @@ double[] CreateRandomArrayRealNum(int size, int minValue, int maxValue) // Ме�
     return array; 
 }
 
-double DiffMaxMin(double[] myArray)
+double DiffMaxMin(double[] myArray) // Метод нахождения min max и размности м/у max и min
 {
     double diff = 0;
     double min = myArray[0];
