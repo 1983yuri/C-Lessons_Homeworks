@@ -27,22 +27,34 @@ Console.WriteLine($"The number of positive is: {result}");
 
 // Задача 2 ( Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем)
 */
+void IntLinesPoint(double b1, double k1, double b2, double k2)
+{
+    if (k1 == k2 && b1 != b2)
+    Console.WriteLine("These lines do not intersect!");
+else if (k1 == k2 && b1 == b2)
+    Console.WriteLine("These lines intersect at all points!");
+else
+{
+    double x = 0;
+    x = (b2 - b1) / (k1 - k2);
+    double y = 0;
+    y = k1 * x + b1;
+    Console.WriteLine($"The intersection point has coordinates: x = {x} y = {y}");
+}
+}
 
 Console.WriteLine("Input the number b1 responsible for the location relative to the Y axis:");
-int b1 = Convert.ToInt32(Console.ReadLine());
+double b1 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input angular coefficient k1:");
-int k1 = Convert.ToInt32(Console.ReadLine());
+double k1 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input the number b2 responsible for the location relative to the Y axis:");
-int b2 = Convert.ToInt32(Console.ReadLine());
+double b2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input angular coefficient k2:");
-int k2 = Convert.ToInt32(Console.ReadLine());
-    if (k1 == k2 && b1 != b2)
-        Console.WriteLine("These lines do not intersect!");
-    if (k1 == k2 && b1 == b2)
-        Console.WriteLine("These lines intersect at all points!");
-double x = 0;
-    x = (-b2 + b1) / (-k1 + k2);
-double y = 0;
-    y = k2 * x + b2;
+double k2 = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine($"The intersection point has coordinates: x = {x} y = {y}");
+IntLinesPoint(b1, k1, b2, k2);
+
+
+
+
+
