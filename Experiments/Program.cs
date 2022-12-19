@@ -52,7 +52,7 @@ int[] FillArray(int size)
     int[] array = new int[size];
     while(i < size)
    {
-    array[i] = new Random().Next(1, 10);
+    array[i] = new Random().Next(1, 100);
     i++;
    }
    return array;
@@ -61,9 +61,14 @@ int[] FillArray(int size)
 void ShowArray(int[] array)
 {
     int i = 0;
+    int j = 0;
     while(i < array.Length)
-    Console.WriteLine(array[i]);
-    i++;
+    {
+      Console.WriteLine($" element [{j + 1}] is {array[i]}");
+      i++;
+      j++;
+    }
+    
 }
 
 Console.WriteLine("Input the array size: ");
