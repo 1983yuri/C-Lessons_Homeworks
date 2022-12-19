@@ -1,9 +1,9 @@
 ﻿Console.Write("Введите имя пользователя: ");
 string username = Console.ReadLine();
 
-if(username.ToLower() == "юрий")
+if(username.ToLower() == "яйка"|| username.ToLower() == "женя" || username.ToLower() == "евгений" || username.ToLower() == "яйцо"  )
 {
-Console.WriteLine("Тот самый Юрий??? Ураааа!!!!!");
+Console.WriteLine("Женя, который Яйцо? Брал?");
 }
 else
 {
