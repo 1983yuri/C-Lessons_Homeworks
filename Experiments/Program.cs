@@ -44,15 +44,15 @@ int friendvsdog = FriendsVsDog(distance, firstFriendSpeed, secondFriendSpeed, do
 
 Console.Write($"The dog will run from one friend to the second friend: {friendvsdog} times!");
 
-*/
 
-int[] FillArray(int size)
+
+int[] FillArray(int size, int minValue, int maxValue)
 {
     int i = 0;
     int[] array = new int[size];
     while(i < size)
    {
-    array[i] = new Random().Next(1, 100);
+    array[i] = new Random().Next(minValue, maxValue -1); 
     i++;
    }
    return array;
@@ -73,7 +73,28 @@ void ShowArray(int[] array)
 
 Console.WriteLine("Input the array size: ");
 int size = Convert.ToInt32(Console.ReadLine());
-int[] myArray = FillArray(size);
+Console.WriteLine("Input min value of the array: ");
+int minValue = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input max value of the array size: ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+int[] myArray = FillArray(size, minValue, maxValue);
 ShowArray(myArray);
 
 
+// Объектно - ориентированное
+class Person
+ {
+ public string firstName;
+ public string lastName;
+
+ public void ShowFullName()
+ {
+Console.WriteLine($"Name is “ {firstName} {lastName}");
+ }
+ }
+
+Petr = new Person();
+Petr.firstName = “Petr”;
+
+Petr.ShowFullName();
+*/
