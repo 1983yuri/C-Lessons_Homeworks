@@ -95,7 +95,7 @@ void NumOfElementArray(int[,] array)
        Console.WriteLine("This position does not exist!");
 }
 
-int[,] myArray =CreateRandom2dArray();
+int[,] myArray = CreateRandom2dArray();
 Show2dArray(myArray);
 NumOfElementArray(myArray);
 
@@ -112,16 +112,17 @@ double[] AverageColumns(int[,] array)
     {
         int sumOfElem = 0;
         for(int i = 0; i < array.GetLength(0); i++) // Строки
-            {
                 sumOfElem += array[i, j];  
-            }
-        average[index] = (double) sumOfElem / array.GetLength(0);
+            
+        average[index] = (double) sumOfElem / array.GetLength(0); // Без (double) не работает
         index++;
     }          
         return average;
 }
 
 int[,] myArray = CreateRandom2dArray();
+Console.WriteLine("Our random array is: ");
 Show2dArray(myArray);
 double[] averArray = AverageColumns(myArray);
+Console.WriteLine("The average of columns is: ");
 ShowArray(averArray);
