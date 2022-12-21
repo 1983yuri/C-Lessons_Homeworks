@@ -105,16 +105,17 @@ NumOfElementArray(myArray);
 double[] AverageColumns(int[,] array)
 {
     double[] average = new double[array.GetLength(1)];
+    
     int index = 0;
-    int sumOfElem = 0;
 
     for(int j = 0; j < array.GetLength(1); j++) // Столбцы
     {
+        int sumOfElem = 0;
         for(int i = 0; i < array.GetLength(0); i++) // Строки
             {
                 sumOfElem += array[i, j];  
             }
-        average[index] = sumOfElem / array.GetLength(0);
+        average[index] = (double) sumOfElem / array.GetLength(0);
         index++;
     }          
         return average;
