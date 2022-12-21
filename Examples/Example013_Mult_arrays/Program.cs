@@ -26,7 +26,7 @@ void PrintArray(int[,] matr) // Метод для вывода в консоль
         Console.WriteLine();
     }
 }
-
+*/
 void PrintImage(int[,] image) // Метод для вывода в консоль изображения
 {
     for (int i = 0; i < image.GetLength(0); i++) // По i - щелкаем строки
@@ -82,7 +82,7 @@ void FillImage(int row, int col)  // Метод закрашивания изо�
 // int[,] matrix = new int[3, 4];
 
 // PrintArray(matrix);
-
+/*
 void FillArray(int[,] matr) // Метод заполнения матрицы случайными числами
 {
     for (int i = 0; i < matr.GetLength(0); i++) // По i - щелкаем строки

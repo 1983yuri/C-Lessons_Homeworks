@@ -55,38 +55,37 @@ int[,] CreateSum2dArray() // Двумерный массив, сколько з�
 }
 
 int[,] sumArray = CreateSum2dArray();
+int[,] sumArray = CreateSum2dArray();
 Show2dArray(sumArray);
 
 
 // Задача 2 (Задайте двумерный массив. Найдите элементы, у которых оба индекса чётные, и замените эти элементы на их квадраты)
-
-int[,] Quad2dArray(int[,] array) // Метод можно сделать void, как преобразующий
+*/
+void Quad2dArray(int[,] array) // Метод можно сделать void, как преобразующий
 {
     for(int i = 0; i < array.GetLength(0); i += 2)
        for(int j = 0; j < array.GetLength(1); j += 2)
        {
             array[i, j] = array[i, j] * array[i, j]; // array[i,j] *= array[i,j];
        }
-       return array;
 }
 
 int[,] myArray = CreateRandom2dArray();
 Console.WriteLine("Our random array is: ");
 Show2dArray(myArray);
 Console.WriteLine("New version of our array is:");
-int[,] newArray = Quad2dArray(myArray);
-Show2dArray(newArray);
+Quad2dArray(myArray);
+Show2dArray(myArray);
 
 
 // Задача 3 (Задайте двумерный массив. Найдите сумму элементов, находящихся на главной диагонали (с индексами (0,0); (1;1) и т.д.)
-*/
 
 
 
 int SumOfDiag(int[,] array)
 {
     int sum = 0;
-    for(int i = 0; i < array.GetLength(1) && i < array.GetLength(0); i++)
+    for(int i = 0; i < array.GetLength(0) && i < array.GetLength(1); i++)
         sum += array[i, i];
 
     return sum;    
