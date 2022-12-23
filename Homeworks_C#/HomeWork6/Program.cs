@@ -19,6 +19,21 @@ int SumOfPosNum(int amount)
    return count;
 }
 
+// Второй способ
+
+int NumberOFPositive(int m)
+{
+    int count = 0;
+    for(int current = 0; current < m; current++)
+    {
+        Console.Write("Input a number: ");
+        int num = Convert.ToInt32(Console.ReadLine());
+
+        if(num > 0) count++;
+    }
+    return count;
+}
+
 Console.WriteLine("How many numbers will you input?");
 int sizenum = Convert.ToInt32(Console.ReadLine());
 int result = SumOfPosNum(sizenum);

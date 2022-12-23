@@ -102,7 +102,7 @@ NumOfElementArray(myArray);
 */
 // Задача 3 (Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце)
 
-double[] AverageColumns(int[,] array)
+double[] AverageColumns(int[,] array) 
 {
     double[] average = new double[array.GetLength(1)];
     
@@ -111,6 +111,7 @@ double[] AverageColumns(int[,] array)
     for(int j = 0; j < array.GetLength(1); j++) // Столбцы
     {
         int sumOfElem = 0;
+
         for(int i = 0; i < array.GetLength(0); i++) // Строки
                 sumOfElem += array[i, j];  
             
