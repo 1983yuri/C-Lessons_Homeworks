@@ -86,17 +86,22 @@ int[] RowsSum(int[,] array)
 }
 
 
-void MinRows(int[] array)
+void MinRow(int[] array)
 {
-    int minRow = array[0];
-    int indexOfMinRow = 0;
+    int indexOfMin = 0;
+    int min = array[indexOfMin];
+
     for(int i = 0; i < array.Length; i++)
     {
-        if(minRow > array[indexOfMinRow])
-           minRow = array[indexOfMinRow];
-           indexOfMinRow++;        
+        if( min > array[i])
+        {
+            min = array[i];
+            indexOfMin = i;
+        }
+           
+                  
     }
-    Console.WriteLine($"The number of row minimum sum of element is: {indexOfMinRow + 1}"); // + 1 Потому, что выводим для пользователя а не по индексу!
+    Console.WriteLine($"The number of row minimum sum of element is: {indexOfMin + 1}"); // + 1 Потому, что выводим для пользователя а не по индексу!
 }    
 
 
@@ -105,6 +110,6 @@ int[,] myArray = CreateRandom2dArray();
 Show2dArray(myArray);
 int[] newArray = RowsSum(myArray);
 ShowArray(newArray);
-MinRows(newArray);
+MinRow(newArray);
 
 
