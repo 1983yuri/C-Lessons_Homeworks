@@ -31,15 +31,6 @@ void Show2dArray(int[,] array) // Метод вывода 2х мерного м�
     Console.WriteLine();
 }
 
-void ShowArray(int[] array) // Метод вывода массива в консоль
-{
-    for(int i = 0; i < array.Length; i++)
-    {
-        
-      Console.WriteLine($"array[{i + 1}] is {array[i]}"); //Рабочий вариант но не очень подходящий
-    }
-}
-
 // Задача 1 (Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива)
 /*
 void RowsMaxMin (int[,] array)
@@ -66,50 +57,44 @@ Show2dArray(myArray);
 
 // Задача 2 (Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов)
 
-int[] RowsSum(int[,] array)
+void RowsMinSum(int[,] rowSum)
 {
-    int index = 0;
-    int[] rowsSum = new int[array.GetLength(0)];
-    
-    for (int i = 0; i < array.GetLength(0); i++)    // Строки
+    int index = 0;                                    // Считаем суммы строк 
+    int[] rowsSum = new int[rowSum.GetLength(0)];
+
+    for (int i = 0; i < rowSum.GetLength(0); i++)     // Строки
     {
         int tempSum = 0;
 
-        for (int j = 0; j < array.GetLength(1); j++) // Столбцы
+        for (int j = 0; j < rowSum.GetLength(1); j++) // Столбцы
         {
-            tempSum += array[i, j];
+            tempSum += rowSum[i, j];
         }
-            rowsSum[index] = tempSum;
-            index++;         
+        rowsSum[index] = tempSum;
+        index++;
     }
-    return rowsSum;
-}
 
+    int indexOfMin = 0;                               // Находим индекс минимальной суммы
+    int min = rowsSum[indexOfMin];
 
-void MinRow(int[] array)
-{
-    int indexOfMin = 0;
-    int min = array[indexOfMin];
-
-    for(int i = 0; i < array.Length; i++)
+    for (int i = 0; i < rowsSum.Length; i++)
     {
-        if( min > array[i])
+        if (min > rowsSum[i])
         {
-            min = array[i];
+            min = rowsSum[i];
             indexOfMin = i;
         }
-           
-                  
     }
     Console.WriteLine($"The number of row minimum sum of element is: {indexOfMin + 1}"); // + 1 Потому, что выводим для пользователя а не по индексу!
-}    
+}
 
 
 
 int[,] myArray = CreateRandom2dArray();
+Console.WriteLine("Our random array is:");
 Show2dArray(myArray);
-int[] newArray = RowsSum(myArray);
-ShowArray(newArray);
-MinRow(newArray);
+RowsMinSum(myArray);
+
+
 
 
