@@ -123,16 +123,30 @@ RowsMinSum(myArray);
 
 int[,] MultMatrix(int[,] matrix1, int[,] matrix2)
 {
-    int[,] multMatrix = new int[,];
-    
+    int[,] multMatrix = new int[matrix1.GetLength(0), matrix2.GetLength(1)];
+    int tempMult = 0;
+
+    for(int i = 0; i < matrix1.GetLength(0); i++)      // Строки первой матрицы
+       for(int j = 0; j < matrix1.GetLength(1); j++)   // Столбцы первой матрицы
+          for(j = 0; j < matrix2.GetLength(1) - 1; j++)    // Столбцы второй матрицы
+             for(i = 0; i < matrix2.GetLength(0) - 1; i++) // Строки второй матрицы
+             {
+                tempMult = matrix1[i, j] * matrix2[i, j] + matrix1[i + 1, j] * matrix2[i, j + 1];
+                multMatrix[i, j] = tempMult;
+             }
+             return multMatrix;
+
 }
 
 int[,] matrix1 = CreateCustom2dArray();
 int[,] matrix2 = CreateCustom2dArray();
-Console.WriteLine($"Our custom matrix 1 is: ");
+Console.WriteLine("Our custom matrix 1 is: ");
 Show2dArray(matrix1);
-Console.WriteLine($"Our custom matrix 2 is: ");
+Console.WriteLine("Our custom matrix 2 is: ");
 Show2dArray(matrix2);
+int[,] multmatrx = MultMatrix(matrix1, matrix2);
+Console.WriteLine("The multiplication of matrix1 and matrix2 is: ");
+Show2dArray(multmatrx);
 
 
 
