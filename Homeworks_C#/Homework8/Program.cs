@@ -117,7 +117,7 @@ int[,] myArray = CreateRandom2dArray();
 Console.WriteLine("Our random array is:");
 Show2dArray(myArray);
 RowsMinSum(myArray);
-*/
+
 
 // Задача 3 (Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц)
 
@@ -134,7 +134,7 @@ int[,] MultMatrix(int[,] matrix1, int[,] matrix2)
         {
             for (j = 0; j < matrix2.GetLength(1); j++)
             {
-                for (int k = 0; k < matrix2.GetLength(1); k++)
+                for (int k = 0; k < matrix2.GetLength(0); k++)
                 {
                     resultMatrix[i, j] += matrix1[i, k] * matrix2[k, j];
                 }
@@ -153,11 +153,38 @@ Console.WriteLine("Our custom matrix 1 is: ");
 Show2dArray(matrix1);
 Console.WriteLine("Our custom matrix 2 is: ");
 Show2dArray(matrix2);
-int[,] multmatrx = MultMatrix(matrix1, matrix2);
+int[,] multMatrx = MultMatrix(matrix1, matrix2);
 Console.WriteLine("The multiplication of matrix1 and matrix2 is: ");
-Show2dArray(multmatrx);
+Show2dArray(multMatrx);
+*/
+
+// Задача 4 (Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента)
 
 
+int[,,] CreateCustom2dArray() // Метод создания и заполнения 3х мерного массива 2х значными числами по порядку
+{
+    
+    Console.Write("Input a number of rows array : ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a number of colums array: ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a number of pages array : ");
+    int pages = Convert.ToInt32(Console.ReadLine());
+
+        int[,,] array = new int[rows, columns, pages];
+    
+    for(int i = 0; i < rows; i++)           // Пробегаем по всем строкам
+        for(int j = 0; j < columns; j++)    // Пробегаем по всем столбцам
+           for(int k = 0; k < pages; k++)   // Пробегаем по страницам
+        {
+            Console.WriteLine($"Input the number of matrix element of index [row {i + 1} , column {j + 1}]: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            array[i, j, k] = num;
+        }
+                 
+    
+    return array;
+}
           
 
 
