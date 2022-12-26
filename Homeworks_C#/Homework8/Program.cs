@@ -123,18 +123,27 @@ RowsMinSum(myArray);
 
 int[,] MultMatrix(int[,] matrix1, int[,] matrix2)
 {
-    int[,] multMatrix = new int[matrix1.GetLength(0), matrix2.GetLength(1)];
-    int tempMult = 0;
+    int i = 0;
+    int j = 0;
+    int[,] resultMatrix = new int[matrix1.GetLength(0), matrix2.GetLength(1)];
+    resultMatrix[i, j] = 0;
 
-    for(int i = 0; i < matrix1.GetLength(0); i++)      // Строки первой матрицы
-       for(int j = 0; j < matrix1.GetLength(1); j++)   // Столбцы первой матрицы
-          for(j = 0; j < matrix2.GetLength(1) - 1; j++)    // Столбцы второй матрицы
-             for(i = 0; i < matrix2.GetLength(0) - 1; i++) // Строки второй матрицы
-             {
-                tempMult = matrix1[i, j] * matrix2[i, j] + matrix1[i + 1, j] * matrix2[i, j + 1];
-                multMatrix[i, j] = tempMult;
-             }
-             return multMatrix;
+    if (matrix1.GetLength(1) == matrix2.GetLength(0))
+    {
+        for (i = 0; i < matrix1.GetLength(0); i++)
+        {
+            for (j = 0; j < matrix2.GetLength(1); j++)
+            {
+                for (int k = 0; k < matrix2.GetLength(1); k++)
+                {
+                    resultMatrix[i, j] += matrix1[i, k] * matrix2[k, j];
+                }
+            }
+        }
+    }
+    else Console.WriteLine("Matrix sizes are not equal, multiplication cannot be performed!");
+
+    return resultMatrix;
 
 }
 
@@ -149,5 +158,6 @@ Console.WriteLine("The multiplication of matrix1 and matrix2 is: ");
 Show2dArray(multmatrx);
 
 
+          
 
 
