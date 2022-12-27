@@ -1,4 +1,5 @@
 ﻿// Домашняя работа 8
+/*
 int[,] CreateRandom2dArray() // Двумерный массив, сколько запятых столько мер
 {
     Console.Write("Input a number of rows: ");
@@ -55,7 +56,7 @@ int[,] CreateCustom2dArray() // Метод создания и заполнен�
 }
 
 // Задача 1 (Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива)
-/*
+
 void RowsMaxMin (int[,] array)
 {
     for(int i = 0; i < array.GetLength(0); i++)    // Строки
@@ -161,7 +162,7 @@ Show2dArray(multMatrx);
 // Задача 4 (Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента)
 
 
-int[,,] CreateCustom2dArray() // Метод создания и заполнения 3х мерного массива 2х значными числами по порядку
+int[,,] Create3dArray() // Метод создания и заполнения 3х мерного массива 2х значными числами по порядку
 {
     
     Console.Write("Input a number of rows array : ");
@@ -170,21 +171,40 @@ int[,,] CreateCustom2dArray() // Метод создания и заполнен
     int columns = Convert.ToInt32(Console.ReadLine());
     Console.Write("Input a number of pages array : ");
     int pages = Convert.ToInt32(Console.ReadLine());
+    if(rows * columns * pages > 90) goto Message;
 
-        int[,,] array = new int[rows, columns, pages];
-    
-    for(int i = 0; i < rows; i++)           // Пробегаем по всем строкам
-        for(int j = 0; j < columns; j++)    // Пробегаем по всем столбцам
-           for(int k = 0; k < pages; k++)   // Пробегаем по страницам
-        {
-            Console.WriteLine($"Input the number of matrix element of index [row {i + 1} , column {j + 1}]: ");
-            int num = Convert.ToInt32(Console.ReadLine());
-            array[i, j, k] = num;
-        }
-                 
-    
+    int[,,] array = new int[rows, columns, pages];
+    int nums = 99; 
+
+      for (int k = 0; k < pages; k++)
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++, nums--)
+                    array[i, j, k] = nums;                       
+                
     return array;
+    Message: Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
 }
+
           
+void Show3dArray(int[,,] array) // Метод вывода 3х мерного массива
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int page = 0;
+    
+    for(k = 0; k < array.GetLength(2); k++, page++)         // Начинаем со страниц, чтобы элементы группировались по страницам
+    {
+        Console.WriteLine(); 
+        Console.WriteLine($"Page {page + 1} elements: ");   // Показываем страницы(3е измерение для пользоватеяля)  
+        for(i = 0; i < array.GetLength(0); i++)             
+            for(j = 0; j < array.GetLength(1); j++)
+                Console.Write($"{array[i, j, k]}({i},{j},{k}) ");
+    
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
 
-
+int[,,] my3dArray = Create3dArray();
+Show3dArray(my3dArray);

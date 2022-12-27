@@ -97,4 +97,79 @@ Petr = new Person();
 Petr.firstName = “Petr”;
 
 Petr.ShowFullName();
+
+
+int[] CreateRandomArray(int size, int minValue, int maxValue) // Метод создания и заполнения массива числами в заданном диапазоне
+{
+    int[] array = new int[size]; // Инициализации массива, выделение памяти
+
+    for(int i = 0; i < size; i++)
+    {          
+        array[i] = new Random().Next(minValue, maxValue + 1);  // +1 потому, что [)    
+    }
+    return array; // Возвращаем просто имя массива!!!
+}
+
+ 
+
+void ShowArray(int[] array) // Метод вывода массива в консоль
+{
+    for(int i = 0; i < array.Length; i++)
+    {
+      Console.WriteLine($"array[{i + 1}] is {array[i]}"); 
+    }
+}
+
+void OrderArray(int[] array)  // Метод сортировки одномерного массива по убыванию
+{
+    int temp = 0;
+    for(int i = 0; i < array.Length -1; i++)
+       for(int j = i + 1; j < array.Length; j++)
+        {
+            if(array[i] < array[j])
+            {
+               temp = array[i];
+               array[i] = array[j];
+               array[j] = temp;
+            }
+        }
+}
+
+int[] myArray = CreateRandomArray(10, 0, 9);
+ShowArray(myArray);
+Console.WriteLine();
+OrderArray(myArray);
+ShowArray(myArray);
 */
+
+int[] CreateArray(int size) // Метод создания и заполнения массива числами в заданном диапазоне
+{
+    int[] array = new int[size]; // Инициализации массива, выделение памяти
+    
+    int nums = 10;
+
+    for(int i = 0; i < size; i++)
+    {
+      array[i] = nums;
+      nums++;   
+    }           
+           
+    return array; // Возвращаем просто имя массива!!!
+}
+
+ 
+
+void ShowArray(int[] array) // Метод вывода массива в консоль
+{
+    for(int i = 0; i < array.Length; i++)
+    {
+      Console.WriteLine($"array[{i + 1}] is {array[i]}"); 
+    }
+}
+
+Console.WriteLine("Input the size of array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+if(size > 90) goto Found;
+int[] myArray = CreateArray(size);
+ShowArray(myArray);
+Found: Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
