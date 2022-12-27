@@ -169,7 +169,7 @@ int[,,] Create3dArray(int rows, int columns, int pages) // Метод созда
 
       for (int k = 0; k < pages; k++)
         for (int i = 0; i < rows; i++)
-            for (int j = 0; j < columns && nums >= 10; j++, nums--)
+            for (int j = 0; j < columns; j++, nums--)
                     array[i, j, k] = nums;                       
                 
     return array;   
@@ -181,12 +181,11 @@ void Show3dArray(int[,,] array) // Метод вывода 3х мерного м
     int i = 0;
     int j = 0;
     int k = 0;
-    int page = 0;
     
-    for(k = 0; k < array.GetLength(2); k++, page++)         // Начинаем со страниц, чтобы элементы группировались по страницам
+    for(k = 0; k < array.GetLength(2); k++)         // Начинаем со страниц, чтобы элементы группировались по страницам
     {
         Console.WriteLine(); 
-        Console.WriteLine($"Page {page + 1} elements: ");   // Показываем страницы(3е измерение для пользоватеяля)  
+        Console.WriteLine($"Page {k + 1} elements: ");   // Показываем страницы(3е измерение для пользоватеяля)  
         for(i = 0; i < array.GetLength(0); i++)             
             for(j = 0; j < array.GetLength(1); j++)
                 Console.Write($"{array[i, j, k]}({i},{j},{k}) ");
@@ -205,7 +204,7 @@ int columns = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input a number of pages array : ");
 int pages = Convert.ToInt32(Console.ReadLine());
 
-if(rows * columns * pages < 90)
+if(rows * columns * pages <= 90)
 {
     int[,,] my3dArray = Create3dArray(rows, columns, pages); 
     Show3dArray(my3dArray);
