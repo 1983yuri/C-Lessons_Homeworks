@@ -162,27 +162,17 @@ Show2dArray(multMatrx);
 // Задача 4 (Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента)
 
 
-int[,,] Create3dArray() // Метод создания и заполнения 3х мерного массива 2х значными числами по порядку
-{
-    
-    Console.Write("Input a number of rows array : ");
-    int rows = Convert.ToInt32(Console.ReadLine());
-    Console.Write("Input a number of colums array: ");
-    int columns = Convert.ToInt32(Console.ReadLine());
-    Console.Write("Input a number of pages array : ");
-    int pages = Convert.ToInt32(Console.ReadLine());
-    if(rows * columns * pages > 90) goto Message;
-
+int[,,] Create3dArray(int rows, int columns, int pages) // Метод создания и заполнения 3х мерного массива 2х значными числами по порядку
+{  
     int[,,] array = new int[rows, columns, pages];
     int nums = 99; 
 
       for (int k = 0; k < pages; k++)
         for (int i = 0; i < rows; i++)
-            for (int j = 0; j < columns; j++, nums--)
+            for (int j = 0; j < columns && nums >= 10; j++, nums--)
                     array[i, j, k] = nums;                       
                 
-    return array;
-    Message: Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
+    return array;   
 }
 
           
@@ -206,5 +196,19 @@ void Show3dArray(int[,,] array) // Метод вывода 3х мерного м
     Console.WriteLine();
 }
 
-int[,,] my3dArray = Create3dArray();
-Show3dArray(my3dArray);
+
+
+Console.Write("Input a number of rows array : ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a number of colums array: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a number of pages array : ");
+int pages = Convert.ToInt32(Console.ReadLine());
+
+if(rows * columns * pages < 90)
+{
+    int[,,] my3dArray = Create3dArray(rows, columns, pages); 
+    Show3dArray(my3dArray);
+} 
+else Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
+
