@@ -19,7 +19,7 @@ int[,] CreateRandom2dArray() // Двумерный массив, сколько 
     
     return array;
 }
-
+*/
 void Show2dArray(int[,] array) // Метод вывода 2х мерного массива
 {
     for(int i = 0; i < array.GetLength(0); i++) // Ноль по строкам, 1 по столбцам
@@ -31,7 +31,7 @@ void Show2dArray(int[,] array) // Метод вывода 2х мерного м�
     }
     Console.WriteLine();
 }
-
+/*
 
 int[,] CreateCustom2dArray() // Метод создания и заполнения матрицы(2х мерного массива)
 {
@@ -157,7 +157,7 @@ Show2dArray(matrix2);
 int[,] multMatrx = MultMatrix(matrix1, matrix2);
 Console.WriteLine("The multiplication of matrix1 and matrix2 is: ");
 Show2dArray(multMatrx);
-*/
+
 
 // Задача 4 (Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента)
 
@@ -211,3 +211,59 @@ if(rows * columns * pages <= 90)
 } 
 else Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
 
+
+// Задача 4 (Напишите программу, которая заполнит спирально массив 4 на 4)
+*/
+int[,] Create2dSnakeArray() // Метод создания и заполнения 2х мерного массива, змейкой числами по порядку
+{
+    Console.Write("Input a number of rows array : ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Input a number of colums array: ");
+    int columns = Convert.ToInt32(Console.ReadLine()); 
+
+    int[,] array = new int[rows, columns];
+    int nums = 1;
+    
+
+    int count = 0; 
+    int startColmn = 0;
+    int endColmn = columns - 1;
+    int startRow = 0;
+    int endRow = rows - 1;
+
+    while (startColmn <= endColmn && startRow <= endRow)
+    {
+        for (int i = startColmn; i <= endColmn; i++)
+        {
+            array[startRow, i] = count;
+            count++;
+        }
+        startRow++;
+
+        for(int j = startRow; j <= endRow; j++)
+        {
+            array[j, endRow] = count;
+            count++;
+        }
+         endColmn--;
+
+        for (int i = endColmn; i >= startColmn; i--)
+        {
+            array[endRow, i] = count;
+            count++;
+        }
+        endRow--;
+
+        for (int i = endRow; i >= startRow; i--)
+        {
+            array[i, startColmn] = count;
+            count++;
+        }
+        startColmn++;
+    }
+    return array;                      
+  
+}
+
+int[,] my2dArray = Create2dSnakeArray();
+Show2dArray(my2dArray);
