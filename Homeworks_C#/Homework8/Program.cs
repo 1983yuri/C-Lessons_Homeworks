@@ -212,7 +212,7 @@ if(rows * columns * pages <= 90)
 else Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
 
 
-// Задача 4 (Напишите программу, которая заполнит спирально массив 4 на 4)
+// Задача 5 (Напишите программу, которая заполнит спирально массив 4 на 4)
 */
 int[,] Create2dSnakeArray() // Метод создания и заполнения 2х мерного массива, змейкой числами по порядку
 {
@@ -222,47 +222,45 @@ int[,] Create2dSnakeArray() // Метод создания и заполнени
     int columns = Convert.ToInt32(Console.ReadLine()); 
 
     int[,] array = new int[rows, columns];
-    int nums = 1;
     
-
-    int count = 0; 
+    int nums = 10;               // c 10, чтобы красиво отформатировать
     int startColmn = 0;
-    int endColmn = columns - 1;
+    int endColmn = columns - 1;  // переменная для наглядности, можно было не вводить
     int startRow = 0;
-    int endRow = rows - 1;
+    int endRow = rows - 1;       // переменная для наглядности, можно было не вводить
 
-    while (startColmn <= endColmn && startRow <= endRow)
+    while (startColmn <= endColmn && startRow <= endRow) // для повтора циклов
     {
-        for (int i = startColmn; i <= endColmn; i++)
+        for (int j = startColmn; j <= endColmn; j++) // Идем по элементам строки
         {
-            array[startRow, i] = count;
-            count++;
+            array[startRow, j] = nums;
+            nums++;
         }
-        startRow++;
+        startRow++; // после каждого цикла уменьшаем количество заполняемых элементов на 1
 
-        for(int j = startRow; j <= endRow; j++)
+        for (int i = startRow; i <= endRow; i++) // Идем по элементам столбца
         {
-            array[j, endRow] = count;
-            count++;
+            array[i, endColmn] = nums;
+            nums++;
         }
-         endColmn--;
+        endColmn--;
 
-        for (int i = endColmn; i >= startColmn; i--)
+        for (int j = endColmn; j >= startColmn; j--) // Идем по элементам строки
         {
-            array[endRow, i] = count;
-            count++;
+            array[endRow, j] = nums;
+            nums++;
         }
         endRow--;
 
-        for (int i = endRow; i >= startRow; i--)
+        for (int i = endRow; i >= startRow; i--) // Идем по элементам столбца
         {
-            array[i, startColmn] = count;
-            count++;
+            array[i, startColmn] = nums;
+            nums++;
         }
         startColmn++;
     }
-    return array;                      
-  
+    return array;
+
 }
 
 int[,] my2dArray = Create2dSnakeArray();
