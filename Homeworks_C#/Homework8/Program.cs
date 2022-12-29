@@ -228,7 +228,7 @@ int[,] Create2dSnakeArray() // Метод создания и заполнени
     int endColmn = columns - 1;  // переменная для наглядности, можно было не вводить
     int startRow = 0;
     int endRow = rows - 1;       // переменная для наглядности, можно было не вводить
-
+/*
     while (startColmn <= endColmn && startRow <= endRow) // для повтора циклов
     {
         for (int j = startColmn; j <= endColmn; j++) // Идем по элементам строки
@@ -258,6 +258,42 @@ int[,] Create2dSnakeArray() // Метод создания и заполнени
             nums++;
         }
         startColmn++;
+    }
+    return array;
+
+}
+*/
+// Второй вариант, знейка в обратную сторону:
+
+ while (startColmn <= endColmn && startRow <= endRow) // для повтора циклов
+    {
+        for (int i = startRow; i <= endRow; i++) // Идем по элементам строки
+        {
+            array[i, startColmn] = nums;
+            nums++;
+        }
+        startColmn++; // после каждого цикла уменьшаем количество заполняемых элементов на 1
+
+        for (int j = startColmn; j <= endColmn; j++) // Идем по элементам столбца
+        {
+            array[endRow, j] = nums;
+            nums++;
+        }
+        endRow--;
+
+        for (int i = endRow; i >= startRow; i--) // Идем по элементам строки
+        {
+            array[i, endColmn] = nums;
+            nums++;
+        }
+        endColmn--;
+
+        for (int j = endColmn; j >= startColmn; j--) // Идем по элементам столбца
+        {
+            array[startRow, j] = nums;
+            nums++;
+        }
+        startRow++;
     }
     return array;
 
