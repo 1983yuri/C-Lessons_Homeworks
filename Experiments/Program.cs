@@ -140,7 +140,7 @@ ShowArray(myArray);
 Console.WriteLine();
 OrderArray(myArray);
 ShowArray(myArray);
-*/
+
 
 int[] CreateArray(int size) // Метод создания и заполнения массива числами в заданном диапазоне
 {
@@ -173,3 +173,64 @@ if(size > 90) goto Found;
 int[] myArray = CreateArray(size);
 ShowArray(myArray);
 Found: Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
+
+*/
+// Самостоятельное решение со змейкой
+
+int[,] CreateSnakeArray(int rows, int columns)
+{
+    int[,] arr = new int[rows, columns];
+
+    int nums = 10;
+    int startRow = 0;
+    int endRow = rows - 1;
+    int startColumn = 0;
+    int endColumn = columns - 1;
+
+    while(startRow <= endRow  && startColumn <= endColumn)
+    {
+        for(int j = startColumn; j <= endColumn; j++)
+        {
+            arr[startRow, j] = nums;
+            nums++;
+        }
+        startRow++;
+    
+        for(int i = startRow; i <= endRow; i++)
+        {
+            arr[i, endColumn] = nums;
+            nums++;
+        }
+        endColumn--;
+
+        for(int j = endColumn; j >= startColumn; j--)
+        {
+            arr[endRow, j] = nums;
+            nums++;
+        }
+        endRow--;
+
+        for(int i = endRow; i >= startRow; i--)
+        {
+            arr[i, startColumn] = nums;
+            nums++;
+        }
+        startColumn++;     
+    }
+    return arr;
+}
+
+void Show2dArray(int[,] array) // Метод вывода 2х мерного массива
+{
+    for(int i = 0; i < array.GetLength(0); i++) // Ноль по строкам, 1 по столбцам
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+           Console.Write(array[i, j] + " ");
+
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+int[,] mySnakeArray = CreateSnakeArray(7, 6);
+Show2dArray(mySnakeArray);
