@@ -42,7 +42,7 @@ void ShowNumbers(int n)
 Console.WriteLine("Input the value of the number: ");
 int nums = Convert.ToInt32(Console.ReadLine()); 
 ShowNumbers(nums); 
-*/
+
 
 // Задача 2 (Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N)
 
@@ -61,6 +61,27 @@ int numN = Convert.ToInt32(Console.ReadLine());
 
 int sum = SumNumbersOfSection(numM, numN);
 Console.WriteLine($"The sum of numbers of section from number M to number M is: {sum}");
+*/
+// Задача 3 (Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n)
+
+int AkkermanFunction(int m, int n)
+{
+    if (m == 0)
+        return n + 1;
+    else
+      if ((m != 0) && (n == 0))
+        return AkkermanFunction(m - 1, 1);
+    else
+        return AkkermanFunction(m - 1, AkkermanFunction(m, n - 1));
+}
+
+Console.WriteLine("Input the number m for Akkerman function: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the number n for Akkerman function: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int result = AkkermanFunction(m, n);
+Console.WriteLine($"The result is: {result}");
+
 
                          
 
