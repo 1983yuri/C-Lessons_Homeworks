@@ -174,7 +174,7 @@ int[] myArray = CreateArray(size);
 ShowArray(myArray);
 Found: Console.WriteLine("Array size exceeds possible number of values! Restart the program and input new values!");
 
-*/
+
 // Самостоятельное решение со змейкой
 
 int[,] CreateSnakeArray(int rows, int columns)
@@ -234,3 +234,134 @@ void Show2dArray(int[,] array) // Метод вывода 2х мерного м�
 
 int[,] mySnakeArray = CreateSnakeArray(7, 6);
 Show2dArray(mySnakeArray);
+
+
+// Взвешивание гирек в массиве
+
+void MaxWeight()
+{
+int weight = 0;
+
+Console.WriteLine("How many weights you need weigh?");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] weightArr = new int[size];
+int maxweight = weightArr[0];
+
+
+do
+{
+  Console.WriteLine($"Input the numbers of weight: {weight + 1} ");
+  int nums = Convert.ToInt32(Console.ReadLine());
+  weightArr[weight] = nums; 
+  weight++;
+}
+while(weight < size);
+
+for(int i = 0; i < size; i++)
+{
+    if(weightArr[i] > maxweight)
+    maxweight = weightArr[i];
+}
+
+Console.WriteLine($"The maxweight of weight is {maxweight}!");
+}
+
+MaxWeight();
+
+
+
+// Взвешивание гирек, вторая самая тяжелая
+
+void SecondMaxWeight()
+{
+int weight = 0;
+int maxIndex = 0;
+
+Console.WriteLine("How many weights you need weigh?");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] weightArr = new int[size];
+int maxweight = weightArr[0];
+int secondMaxWeight = weightArr[0];
+
+
+do
+{
+  Console.WriteLine($"Input the numbers of weight: {weight + 1} ");
+  int nums = Convert.ToInt32(Console.ReadLine());
+  weightArr[weight] = nums; 
+  weight++;
+}
+while(weight < size);
+
+for(int i = 0; i < size; i++)
+{
+    if(weightArr[i] > maxweight)
+    {
+        maxweight = weightArr[i];
+        maxIndex = i;
+    }
+    
+}
+
+for(int i = 0; i < size; i++)
+{
+    if(i == maxIndex)
+        {
+            i++;
+        }
+    else if(weightArr[i] > secondMaxWeight)
+        {
+           secondMaxWeight = weightArr[i];          
+        }
+}
+
+Console.WriteLine($"The maxweight of weight is {maxweight} and second maxweight is {secondMaxWeight}!");
+}
+
+SecondMaxWeight();
+*/
+
+// Второй способ нахождения max и secondmax за один проход
+
+void SecondMaxWeight()
+{
+Console.WriteLine("How many weights you need weigh?");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] weightArr = new int[size];
+int maxweight = weightArr[0];
+int secondMaxWeight = weightArr[0];
+int weight = 0;
+int temp;
+
+
+
+do
+{
+  Console.WriteLine($"Input the numbers of weight: {weight + 1} ");
+  int nums = Convert.ToInt32(Console.ReadLine());
+  weightArr[weight] = nums; 
+  weight++;
+}
+while(weight < size); // Заполняем массив по одному элементу, пока срабатывает условие
+
+
+
+for(int i = 0; i < size; i++)
+{
+    temp = maxweight;             // Записываем во временную переменную максимальное значение, что при нахождении больше него, "бывшее большее" записать в secomdMax, и обновить max ! 
+
+    if(weightArr[i] >= maxweight)
+    {    
+        maxweight = weightArr[i];
+        secondMaxWeight = temp;
+    }
+    else if(weightArr[i] > secondMaxWeight)
+        secondMaxWeight = weightArr[i]; 
+
+
+     
+}
+Console.WriteLine($"The maxweight of weight is {maxweight} and second maxweight is {secondMaxWeight}!");
+}
+
+SecondMaxWeight();
