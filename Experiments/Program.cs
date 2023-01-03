@@ -420,7 +420,7 @@ void Even()
 }
 
 Even();
-*/
+
 
 // Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N
 
@@ -444,3 +444,69 @@ void EvenFrom1ToN (int num) // Рекурсивно
 Console.WriteLine("Input the number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 EvenFrom1ToN(num);
+
+
+// Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа
+
+void SecondDigit ()
+{
+    Console.WriteLine("Input the three - digit number: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    int secondDigit = 0;
+
+    if( num > 99 && num < 1000)
+    {
+        num = num / 10;
+        secondDigit = num % 10;
+        Console.WriteLine($"The second digit of number is {secondDigit}"); 
+    }
+    else Console.WriteLine("You input a not three digit number, please restart the program and inpun the three - digit number!");
+}
+
+SecondDigit();
+
+
+// Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет
+
+void ThreeDigitOfNumber () 
+{
+
+    Console.WriteLine("Input the three - digit number: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    int therdDigit = 0;
+
+    if( num > 99)
+    {
+        while(num >= 1000)
+        {
+            num = num / 10;
+        }
+        therdDigit = num % 10;
+        Console.WriteLine($"The three digit of number is: {therdDigit}");
+    }
+    else Console.WriteLine("The inputed number is not have therd digit!");
+}
+
+ThreeDigitOfNumber();
+
+
+// Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным
+
+Console.WriteLine("Input the number day of the week: "); // Ниже эта же задача методом bool
+int num = Convert.ToInt32(Console.ReadLine());
+if(num == 6 || num == 7) Console.WriteLine("This day is holiday!");
+else Console.WriteLine("This day is not holiday!");
+*/
+
+bool Holiday(int num)
+{
+    if(num == 6 || num == 7) return true;
+    else return false;
+}
+
+Console.WriteLine("Input the number of day of the week: ");
+int day = Convert.ToInt32(Console.ReadLine());
+
+if(Holiday(day) == true) Console.WriteLine("THis day is holiday!");
+else Console.WriteLine("This day is not s holiday!");
+
