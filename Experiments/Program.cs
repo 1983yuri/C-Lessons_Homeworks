@@ -319,7 +319,7 @@ Console.WriteLine($"The maxweight of weight is {maxweight} and second maxweight 
 }
 
 SecondMaxWeight();
-*/
+
 
 // Второй способ нахождения max и secondmax за один проход
 
@@ -348,7 +348,7 @@ while(weight < size); // Заполняем массив по одному эл�
 
 for(int i = 0; i < size; i++)
 {
-    temp = maxweight;             // Записываем во временную переменную максимальное значение, что при нахождении больше него, "бывшее большее" записать в secomdMax, и обновить max ! 
+    temp = maxweight;             // Записываем во временную переменную максимальное значение, чтобы при нахождении больше него, "бывшее" большее записать в secomdMax, и обновить max ! 
 
     if(weightArr[i] >= maxweight)
     {    
@@ -365,3 +365,82 @@ Console.WriteLine($"The maxweight of weight is {maxweight} and second maxweight 
 }
 
 SecondMaxWeight();
+
+//Повтороение пройденного материала
+// Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+
+void MinMax ()
+{
+Console.WriteLine("Input first number: ");
+int firstNum = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input second number: ");
+int secondNum = Convert.ToInt32(Console.ReadLine());
+
+if(firstNum > secondNum)
+   Console.WriteLine($"The max number is {firstNum}, the min number is {secondNum}");
+else Console.WriteLine($"The max number is {secondNum}, the min number is {firstNum}");   
+}
+
+MinMax();
+
+// Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+
+void MinMax3 ()
+{
+Console.WriteLine("Input first number: ");
+int firstNum = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input second number: ");
+int secondNum = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input second number: ");
+int thirdNum = Convert.ToInt32(Console.ReadLine());
+
+if(firstNum > secondNum && firstNum > thirdNum)
+   Console.WriteLine($"The max number is {firstNum}");
+else if(secondNum > firstNum && secondNum > thirdNum) 
+   Console.WriteLine($"The max number is {secondNum}");
+else Console.WriteLine($"The max number is {thirdNum}");      
+}
+
+MinMax3();
+
+
+// Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+void Even()
+{
+    Console.WriteLine("Input the number: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+
+    if(num % 2 == 0)
+        Console.WriteLine("This number is even!");
+    else
+        Console.WriteLine("This number is odd!");     
+}
+
+Even();
+*/
+
+// Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N
+
+void EvenFrom1ToN (int num) // Рекурсивно
+{
+    if(num >= 2 && num % 2 == 0)
+    {
+        EvenFrom1ToN(num - 2);
+        Console.Write(num + " ");    
+    }
+    
+    else if(num >= 2 && num % 2 != 0)
+    {
+        num--;
+        EvenFrom1ToN(num - 2);
+        Console.Write(num + " ");   
+    }   
+
+}
+
+Console.WriteLine("Input the number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+EvenFrom1ToN(num);

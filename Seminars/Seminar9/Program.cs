@@ -5,7 +5,8 @@
 void ShowNums(int num)
 {
     if(num > 1) ShowNums(num - 1);
-    Console.Write(num +" ");
+    Console.Write(num +" "); // В данном случае выводим на обратном пути, после погружения в рекурсию, если перенести вывод выше вызова функции, будет работать в 2х направлениях
+}
 }
 ShowNums(5);
 */
@@ -20,19 +21,19 @@ int GetSumOfDigits(int num)
 Console.Write(GetSumOfDigits(417));
 */
 
-// Задача3: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N
+// Задача3: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N, M и N могут быть больше друг - друга
 /*
-void ShoyDiff(int numA, int numB)
+void ShowDiff(int numA, int numB)
 {
     if(numA < numB) 
     {  
-        ShoyDiff(numA, numB - 1);
+        ShowDiff(numA, numB - 1);
         Console.Write( numB + " ");
     }
     if(numA > numB)
     { 
         Console.Write(numA + " ");
-        ShoyDiff(numA - 1, numB);
+        ShowDiff(numA - 1, numB);
     }
     if(numA == numB) Console.Write(numA + " ");
 }
@@ -40,7 +41,7 @@ Console.Write("Input a number M: ");
 int numM = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input a number N: ");
 int numN = Convert.ToInt32(Console.ReadLine());
-ShoyDiff(numM, numN);
+ShowDiff(numM, numN);
 */
 
 
