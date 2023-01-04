@@ -496,7 +496,7 @@ Console.WriteLine("Input the number day of the week: "); // Ниже эта же
 int num = Convert.ToInt32(Console.ReadLine());
 if(num == 6 || num == 7) Console.WriteLine("This day is holiday!");
 else Console.WriteLine("This day is not holiday!");
-*/
+
 
 bool Holiday(int num)
 {
@@ -509,4 +509,206 @@ int day = Convert.ToInt32(Console.ReadLine());
 
 if(Holiday(day) == true) Console.WriteLine("THis day is holiday!");
 else Console.WriteLine("This day is not s holiday!");
+
+
+// Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+
+bool Palindrom(int num)
+{
+    int tempNum = num;
+    int newNum = 0;
+
+    while (tempNum > 0)
+    {
+        newNum = newNum * 10 + tempNum % 10;
+        tempNum = tempNum / 10;
+    
+    }
+
+    if(num == newNum) return true;
+    else return false;
+}
+
+Console.WriteLine("Input the number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+if(Palindrom(number) == true) Console.WriteLine("This number is a palindrome!");
+else Console.WriteLine("This number is not a palindrome!");
+
+// 2й вариант решения, через массив
+void ShowArray(int[] array)
+{
+    int i = 0;
+    int j = 0;
+    while(i < array.Length)
+    {
+      Console.WriteLine($" element [{j + 1}] is {array[i]}");
+      i++;
+      j++;
+    }
+    
+}
+
+int[] ArrayFromNum() // Палиндром, через массив, метод создания массива заполненого цифрами числа
+{   
+    Console.WriteLine("Input the number: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+
+    int tempNum = number;
+    int size = 0;
+    int i = 0;
+
+    while (number > 0)
+    {
+        number = number / 10;
+        size++;
+    }
+
+    int[] array = new int[size];
+    
+        while(tempNum > 0)
+        {
+            array[i] = number * 10 + tempNum % 10;
+            tempNum = tempNum / 10;
+            i++;
+        }
+    
+    return array;
+}
+
+
+void InversAndCompairArrays(int[] array) // Метод инверсии массива и сравнения с изначальным
+{
+    int i, j;
+    int[] inversArray = new int[array.Length];
+
+    for(i = 0, j = array.Length - 1; j >= 0; i++, j--)
+    {
+        inversArray[j] = array[i];
+    }
+
+    bool isEqual = Enumerable.SequenceEqual(array, inversArray);                // Встроенная функция сравнения одномерных массивов
+    if (isEqual == true) Console.WriteLine("This number is a palindrome!");
+    else Console.WriteLine("This number is not a palindrome!");
+}
+
+int[] palArray = ArrayFromNum();
+ShowArray(palArray);
+InversAndCompairArrays(palArray);
+
+// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве
+
+void Distans3D()
+{
+    Console.WriteLine("Input the coordinate X, first pixel: ");
+    int numX1 = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the coordinate Y, first pixel: ");
+    int numY1 = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the coordinate Z, first pixel: ");
+    int numZ1 = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the coordinate X, second pixel: ");
+    int numX2 = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the coordinate Y, second pixel: ");
+    int numY2 = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the coordinate Z, second pixel: ");
+    int numZ2 = Convert.ToInt32(Console.ReadLine());
+
+    double distance = Math.Sqrt(Math.Pow(numX2 - numX1, 2) + Math.Pow(numY2 - numY1, 2) + Math.Pow(numZ2 - numZ1, 2));
+    Console.WriteLine($"The distance between pixel 1 and pixel 2 is: {distance}");
+}
+
+Distans3D();
+
+
+// Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N
+
+void TableOfCube(int num) // Рекурсивно
+{
+    if(num >= 1)
+    {
+        TableOfCube(num - 1);
+        Console.Write(Math.Pow(num, 3) + " ");
+    } 
+}
+
+Console.WriteLine("Input the number: ");
+int numN = Convert.ToInt32(Console.ReadLine());
+TableOfCube(numN);
+
+
+// Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B
+
+void MathPow(int numA, int numB)
+{
+ int result = numA;
+
+ while(numB > 1)
+ {
+    result = result * numA;
+    numB--;
+ }
+ Console.WriteLine($"The result of MathPow is: {result}");    
+}
+
+Console.WriteLine("Input the number A: ");
+int numA = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input the number B: ");
+int numB = Convert.ToInt32(Console.ReadLine());
+
+MathPow(numA, numB);
+
+
+
+// Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+void GetSumOfDigit()
+{
+    Console.WriteLine("Input the number: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+
+    int temp = num;
+    int sum = 0;
+
+    while(temp > 0)
+    {
+        sum = sum + temp % 10;
+        temp = temp / 10;
+    }
+    Console.WriteLine($"The sum of digits is: {sum}");
+}
+
+GetSumOfDigit();
+
+
+// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран
+
+int[] CreateRandomArray(int size, int minValue, int maxValue)
+{
+    int[] randomArray = new int[size];
+    for(int i = 0; i < size; i++)
+    randomArray[i] = new Random().Next(minValue, maxValue);
+    return randomArray;
+}
+
+void ShowArray(int[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+    Console.WriteLine($"[{i}] {array[i]} ");
+}
+
+Console.WriteLine("Input the size of array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the minValue of array: ");
+int minValue = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input the maxValue of array: ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+int[] myArray = CreateRandomArray(size, minValue, maxValue);
+ShowArray(myArray);
+*/
+
 
