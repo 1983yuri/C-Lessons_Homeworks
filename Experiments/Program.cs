@@ -695,7 +695,7 @@ int[] CreateRandomArray(int size, int minValue, int maxValue)
     return randomArray;
 }
 
-void ShowArray(int[] array)
+void ShowArray(double[] array)
 {
     for(int i = 0; i < array.Length; i++)
     Console.WriteLine($"[{i}] {array[i]} ");
@@ -709,6 +709,419 @@ Console.WriteLine("Input the maxValue of array: ");
 int maxValue = Convert.ToInt32(Console.ReadLine());
 int[] myArray = CreateRandomArray(size, minValue, maxValue);
 ShowArray(myArray);
+
+
+
+// Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+
+int[] CreateCustomArray()
+{
+    Console.WriteLine("Inpup the size of array: ");
+    int size = Convert.ToInt32(Console.ReadLine());
+
+    int[] customArray = new int[size];
+    int numOfElement = 0;
+    int nums = 0;
+    int i = 0;
+
+    while(size > 0)
+    {
+        Console.WriteLine($"Input three digits number for array filling, element {numOfElement} : ");
+        nums = Convert.ToInt32(Console.ReadLine());
+
+        if(nums < 100 || nums > 999) Console.WriteLine("You inputed a not 3 digits number, please input  the 3 digits number!");
+        else
+        {
+            customArray[i] = nums;
+            i++;
+            numOfElement++;
+            size--;      
+        }
+        
+    }
+    return customArray;
+}
+
+
+int NumOfEvenElements (int[] array)  // Метод проверки элементов массива на четность
+{
+    int count = 0;
+
+    for(int i = 0; i < array.Length; i++)
+        if(array[i] % 2 == 0) count++;
+    return count;
+}
+
+int[] myArray = CreateCustomArray();
+ShowArray(myArray);
+int counter = NumOfEvenElements(myArray);
+Console.WriteLine($"The number of even elements of array is: {counter}");
+
+
+// Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+int[] CreateRandomArray()
+{
+    Console.WriteLine("Input the size of array: ");
+    int size = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the min value of array: ");
+    int minValue = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the max value of array: ");
+    int maxValue = Convert.ToInt32(Console.ReadLine());
+
+    int[] array = new int[size];
+
+    for(int i = 0; i < array.Length - 1; i++)
+        array[i] = new Random().Next(minValue, maxValue);
+    return array;    
+}
+
+void SumOddPosition(int[] array) 
+{
+    int sum = 0;
+    for(int i = 1; i < array.Length; i = i + 2)
+        sum += array[i];
+
+    Console.WriteLine($"The sum of element on odd position of array is {sum}");    
+}
+
+int[] myArray = CreateRandomArray();
+ShowArray(myArray);
+SumOddPosition(myArray);
+
+
+// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+double[] CreateRandomArrayRealNum()
+{
+    Console.WriteLine("Input the size of array: ");
+    int size = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the min value of array: ");
+    int minValue = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Input the max value of array: ");
+    int maxValue = Convert.ToInt32(Console.ReadLine());
+
+    double[] array = new double[size];
+
+    for(int i = 0; i < array.Length; i++)
+        array[i] = Math.Round(new Random().Next(minValue, maxValue) + new Random().NextDouble(), 2);
+                   
+    return array;    
+}
+
+void MinMax(double[] array)
+{
+    double min = array[0];
+    double max = array[0];
+    double result = 0;
+
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[i] > max) max = array[i];
+        else if(array[i] < min) min = array[i];
+    }
+    result = max - min;
+    result = Math.Round(result, 2);
+    Console.WriteLine($"The differens between max and min elements of array is: {result}");
+}
+
+double[] myArray = CreateRandomArrayRealNum();
+ShowArray(myArray);
+MinMax(myArray);
+
+
+// Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+
+void PositiveNum()
+{
+    Console.WriteLine("How many numbers want you input?");
+    int nums = Convert.ToInt32(Console.ReadLine());
+    int count = 0;
+    int num = 0;
+
+    do
+    {
+        Console.WriteLine("Input the number: ");
+        num = Convert.ToInt32(Console.ReadLine());
+        if(num > 0) 
+        {
+            count++;
+        }
+        nums--;
+    }
+    while(nums > 0);
+
+    Console.WriteLine($"The numbers of positive is: {count} "); 
+}
+
+PositiveNum();
+
+// Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем
+
+void PointInterspect()
+{
+    double x = 0;
+    double y = 0;
+    Console.WriteLine("Input the b1 number: ");
+    double b1 = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("Input the k1 number: ");
+    double k1 = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("Input the b2 number: ");
+    double b2 = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("Input the k2 number: ");
+    double k2 = Convert.ToInt32(Console.ReadLine());
+
+    if(k1 == k2 && b1 == b2) Console.WriteLine("This lines coinside!");
+    else if(k1 == k2) Console.WriteLine("This lines are parallel!");
+    else
+    {
+        x = (b2 - b1) / (k1 - k2);
+        y = k1 * x + b1;
+        Console.WriteLine($"This lines ara interspect in point x: {x} y: {y}");
+    }
+}
+
+PointInterspect();
+
+
+// Задайте двумерный массив размером m×n, заполненный случайными вещественными числами
+
+double[,] CreateRandom2DRealNumArray()
+{
+    Console.WriteLine("Input the number of rows of array: ");
+    var rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the number of columns of array: ");
+    var columns = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the min number of array elements: ");
+    var min = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the max number of array elements: ");
+    var max = Convert.ToInt32(Console.ReadLine());
+
+    double[,] array = new double[rows, columns];
+
+    for(int i = 0; i < rows; i++)
+       for(int j = 0; j < columns; j++)
+          array[i, j] = Math.Round(new Random().Next(min, max) + new Random().NextDouble(), 1);
+
+    return array;
+    
+}
+
+void Show2DArray(double[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+       for(int j = 0; j < array.GetLength(1); j++)
+          Console.Write(array[i, j] + " ");
+          Console.WriteLine();
+    }
+    Console.WriteLine();
+}    
+
+double[,] myArray = CreateRandom2DRealNumArray();
+Show2DArray(myArray);
+
+
+// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+void Position(double[,] array)
+{
+    Console.WriteLine("Input index i for seach array element: ");
+    int i = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input index j for seach array element: ");
+    int j = Convert.ToInt32(Console.ReadLine());
+
+    if(i > array.GetLength(0) || i < 0 || j > array.GetLength(1) || j < 0) 
+      Console.WriteLine("The element of array does not exits!");
+    else Console.WriteLine($"Element of array is: {array[i, j]}");  
+}
+
+double[,] myArray = CreateRandom2DRealNumArray();
+Show2DArray(myArray);
+Position(myArray);
+
+// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 */
+int[,] CreateRandom2DArray()
+{
+    Console.WriteLine("Input the number of rows of array: ");
+    var rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the number of columns of array: ");
+    var columns = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the min number of array elements: ");
+    var min = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the max number of array elements: ");
+    var max = Convert.ToInt32(Console.ReadLine());
+
+    int[,] array = new int[rows, columns];
+
+    for(int i = 0; i < rows; i++)
+       for(int j = 0; j < columns; j++)
+          array[i, j] = new Random().Next(min, max);
+
+    return array;
+    
+}
+
+void Show2DArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+       for(int j = 0; j < array.GetLength(1); j++)
+          Console.Write(array[i, j] + " ");
+          Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+/*
+void AverageOfArrayColumns(int[,] array)
+{
+    double average = 0;
+    double sum = 0;
+    for(int j = 0; j < array.GetLength(1); j++)
+    {
+        for(int i = 0; i < array.GetLength(0); i++)
+        {
+            sum += array[i, j];
+        }
+        average = Math.Round(sum / array.GetLength(0), 2);
+        Console.Write(average + " ");
+        sum = 0;
+        
+        
+    }
+}
+
+int[,] myArray = CreateRandom2DArray();
+Show2DArray(myArray);
+AverageOfArrayColumns(myArray);
 
 
+// Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+*/
+void SortArray(int[,] array)  // Метод преобразующий, поэтому можно делать его void и ничего не возвращать
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        int temp = 0;
+        for(int j = 0; j < array.GetLength(1); j++)
+           for(int k = j + 1; k < array.GetLength(1); k++)
+            if(array[i, j] < array[i, k])
+            {
+               temp = array[i, j];
+               array[i, j] = array[i, k];
+               array[i, k] = temp;
+            }
+    }           
+            
+}
+
+int[,] myArray = CreateRandom2DArray();
+Show2DArray(myArray);
+SortArray(myArray);
+Show2DArray(myArray);
+/*
+// Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов
+
+void ShowArray(int[] array) // Метод вывода массива в консоль
+{
+    for(int i = 0; i < array.Length; i++)
+    {
+      Console.WriteLine($"sum elem of row: [{i + 1}] is {array[i]}"); 
+    }
+}
+
+int[] SumRow(int[,] array)
+{
+    int[] rowsArray = new int[array.GetLength(0)];
+    int sum = 0;
+    int index = 0;
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        
+        sum = 0;
+        for (int j = 0; j < array.GetLength(1); j++)
+            sum += array[i, j];
+            rowsArray[i] = sum;
+            index++;
+    }
+    return rowsArray;
+}
+
+void MinRow(int[] array)
+{
+    int indexOfmin = 0;
+    int min = array[0];
+
+    for(int i = 0; i < array.Length; i++)
+    {
+       if(array[i] < min)
+       {
+       min = array[i];
+       indexOfmin = i;
+       }
+    }
+    
+    Console.WriteLine($"The index of rows with minimal sum elements of array is: {indexOfmin + 1}");
+}
+
+int[,] myArray = CreateRandom2DArray();
+Show2DArray(myArray);
+int[] newArray = SumRow(myArray);
+ShowArray(newArray);
+MinRow(newArray); 
+
+
+int[] CreateRandomArray(int size, int minValue, int maxValue)
+{
+    int[] array = new int[size];
+    for(int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(minValue, maxValue);
+    }
+    return array;
+}
+
+void ShowArray(int[] array)
+{
+    for(int i = 0; i < array.Length; i++)
+        Console.Write($"{array[i]} ");
+}
+
+void SortArray(int[] array)
+{
+    int temp = 0;
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPosition = i;
+        for (int j = i + 1; j < array.Length; j++)
+            if (array[j] < array[i])
+            {
+                minPosition = j;
+            }
+        temp = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temp;
+    }
+}
+
+Console.WriteLine("Input the size of array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input the minimal value of elements: ");
+int minValue = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Input the maximum value of array: ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+
+int[] myArray = CreateRandomArray(size, minValue, maxValue);
+ShowArray(myArray);
+SortArray(myArray);
+Console.WriteLine();
+ShowArray(myArray);
+*/
